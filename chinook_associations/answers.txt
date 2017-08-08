@@ -6,32 +6,45 @@ The Rails guide on associations can remind you what those methods are. Do not us
     Album.where(title: 'Vinicius De Moraes')
     Track.all.where(album_id: 247)
 
+    Album.find_by(title: "Vinicius De Moraes").tracks
+
 
 2.    Find the artist called "Philip Glass Ensemble", and then use an association-provided method to find all their albums.
 
     Artist.where(name: 'Philip Glass Ensemble')
     Album.where(artist_id: '275')
 
+    Artist.find_by('Philip Glass Ensemble').albums
+
 3.    Find the "Brazilian Music" playlist and then use an association-provided method to find all its tracks.
 
     Playlist.where(name: 'Brazilian Music').first.tracks
+    Playlist.find_by(name: 'Brazilian Music').first.tracks
 
 4.    Find the "Jazz" genre and then use an association-provided method to find all its tracks.
 
     Genre.where(name: 'Jazz')
     Track.where(genre_id: 2)
 
+    Genre.find_by(name: 'Jazz').tracks
+
 5.    Find the track "My Time After Awhile" and then use an association-provided method to find its genre.
 
     Track.where(name: 'My Time After Awhile')
     Genre.where(id: 6)     Answer: Blues
+
+    Track.find_by(name: 'My Time After Awhile').genre
 
 6.    Use an association-provided method to find the media type of that same track.
 
     Track.where(name: 'My Time After Awhile')
     MediaType.where(id: 1)
 
+    Track.find_by(name: 'My Time After Awhile').media_type
+
 7.    Use an association-provided method to find the album that track appears on.
 
     Track.where(name: 'My Time After Awhile')
     Album.where(id: 20)
+
+    Track.find_by(name: 'My Time After Awhile').album
